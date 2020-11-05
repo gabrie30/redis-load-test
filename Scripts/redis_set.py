@@ -19,7 +19,7 @@ def load_config(filepath):
 def redis_populate(filepath):
     """Function to populate keys in Redis Server"""
     configs = load_config(filepath)
-    client = redis.StrictRedis(host=configs["redis_host"], port=configs["redis_port"])
+    client = redis.StrictRedis(host=configs["redis_host"], port=configs["redis_port"], password=configs["redis_password"])
     for i in range(100000):
         key='key'+str(i)
         value='value'+str(i)
